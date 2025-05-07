@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-slate-900 shadow-sm ">
+    <footer className="bg-white dark:bg-slate-900 shadow-sm border-t border-slate-200">
       <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0">
         <div className="py-4">
           {/* Logo */}
@@ -20,7 +20,7 @@ const Footer = () => {
                 Perspiciatis est cumque tempora doloremque beatae
               </p>
             </div>
-            <div className="flex  sm:pl-4 sm:justify-center flex-wrap gap-4 w-full mx-auto items-center  text-slate-900 dark:text-slate-100">
+            <div className="flex sm:pl-4 sm:justify-center flex-wrap gap-4 w-full mx-auto items-center text-slate-900 dark:text-slate-100">
               <p>link here</p>
               <p>link here</p>
               <p>link here</p>

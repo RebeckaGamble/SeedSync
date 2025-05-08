@@ -9,9 +9,9 @@ const ThemeToggle = () => {
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "light" ? (
-        <Moon className="h-6 w-6" />
+        <Moon className="h-5 w-5" />
       ) : (
-        <Sun className="h-6 w-6" />
+        <Sun className="h-5 w-5" />
       )}
     </button>
   );

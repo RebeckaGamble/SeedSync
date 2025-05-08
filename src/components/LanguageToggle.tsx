@@ -15,7 +15,7 @@ const LanguageToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="flex items-center space-x-1 outline-0">
-          <Globe size={20} />
+          <Globe size={16} />
           <span className="sr-only">Toggle language</span>
         </button>
       </DropdownMenuTrigger>

@@ -38,7 +38,10 @@ const HomeCarousel = () => {
         <div ref={emblaRef}>
           <div className="flex">
             {carouselData.map((slide, index) => (
-              <div className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]" key={index}>
+              <div
+                className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]"
+                key={index}
+              >
                 <Link to={slide.link} className="block">
                   <div
                     className={`${slide.backgroundColor} ${slide.darkBackgroundColor} md:max-w-[800px] lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-lg overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300 hover:shadow-md`}
@@ -47,9 +50,9 @@ const HomeCarousel = () => {
                       <img
                         src={slide.image}
                         alt={slide.title}
-                        className="w-full h-full object-cover opacity-80"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-black/30"></div>
+                      <div className="absolute inset-0 bg-black/50"></div>
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-6 md:p-10">
                       <h2 className="text-3xl md:text-4xl font-bold mb-3">

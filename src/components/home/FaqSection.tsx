@@ -16,9 +16,9 @@ const FaqSection = () => {
   }[];
 
   return (
-    <section className="py-16 bg-white dark:bg-slate-900">
+    <section className="py-16 bg-primary">
       <div className="container mx-auto max-w-[90rem] px-4 2xl:px-0">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-800 dark:text-slate-100">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
           {t("faq.title")}
         </h2>
       </div>
@@ -28,11 +28,11 @@ const FaqSection = () => {
         className="w-[90%] max-w-[800px] mx-auto"
       >
         {content.map((faq) => (
-          <AccordionItem key={faq.id} value={faq.id} className="border-slate-300 dark:border-slate-600">
-            <AccordionTrigger className="text-lg font-medium py-4 justify-between text-slate-800 dark:text-slate-100 hover:text-green dark:hover:text-green transition-colors">
+          <AccordionItem key={faq.id} value={faq.id} className="border-border">
+            <AccordionTrigger className="text-lg font-medium py-4 justify-between text-primary-foreground hover:text-green-hover transition-colors">
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="text-slate-600 dark:text-slate-100 pb-6 text-base">
+            <AccordionContent className="text-secondary-foreground pb-6 text-base">
               {faq.answer}
             </AccordionContent>
           </AccordionItem>

@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: hsl(222.2, 47.4%, 11.2%);
-  --color-primary-foreground: hsl(210, 40%, 98%);
+  --color-primary: hsl(0, 0%, 100%); /* white */
+  --color-primary-foreground: hsl(222, 47%, 11%); /* slate-900*/
+  --color-secondary: hsl(138, 76%, 97%); /* green 50 */
+  --color-secondary-foreground: hsl(215, 32%, 17%); /* slate-800 */
 
   --color-green: hsl(145, 63%, 45%); /* green-500 */
   --color-green-hover: hsl(142, 71%, 45%); /* green-600 */
 
-  --color-white: hsl(0, 0%, 100%);
+  --color-border: hsl(214, 32%, 85%); /* slate 300 */
+  --color-white: hsl(0, 0%, 100%); /* white */
 
   --color-slate-100: hsl(210, 40%, 96%); /* slate-100*/
   --color-slate-600: hsl(215, 28%, 34%); /* slate-600*/
@@ -17,26 +21,39 @@
   --color-slate-900: hsl(222, 47%, 11%); /* slate-900*/
 
   --color-red-400: hsl(0, 90%, 71%); /* red-400 */
+
   --color-link: hsl(211, 91%, 60%); /* blue-500 */
   --color-link-hover: hsl(221, 79%, 48%); /* blue-700 */
 
-  --color-popover: hsl(0 0% 100%); /* white for light mode */
-  --color-popover-foreground: hsl(222.2 84% 4.9%); /* near-black */
-  --color-accent: hsl(210, 40%, 96.1%);
-  --color-accent-foreground: hsl(222.2, 47.4%, 11.2%);
+  /*dropdown*/
+  --color-popover: hsl(0 0% 100%); /* white */
+  --color-popover-foreground: hsl(222.2 84% 4.9%); /* slate 950 */
+  --color-accent: hsl(210, 40%, 96%); /* slate 100*/
+  --color-accent-foreground: hsl(222, 47%, 11%); /* slate 900 */
 }
 
-.dark {
-  --color-primary: hsl(210, 40%, 98%);
-  --color-primary-foreground: hsl(222.2, 47.4%, 11.2%);
+@layer theme {
+  .dark {
+    --color-primary: hsl(222, 47%, 11%); /* slate 900 */
+    --color-primary-foreground: hsl(210, 40%, 96%); /* slate 100 */
+    --color-secondary: hsl(215, 32%, 17%); /* slate-800 */
+    --color-secondary-foreground: hsl(210, 40%, 93%); /* slate 200 */
 
-  --color-green: hsl(142, 71%, 45%); /* green-600 */
-  --color-green-hover: hsl(145, 71%, 29%); /*green-700 */
+    --color-green: hsl(142, 71%, 45%); /* green-600 */
+    --color-green-hover: hsl(145, 71%, 29%); /*green-700 */
 
-  --color-popover: hsl(222.2 84% 4.9%); /* dark bg */
-  --color-popover-foreground: hsl(210 40% 98%); /* light text */
-  --color-accent: hsl(217.2, 32.6%, 17.5%);
-  --color-accent-foreground: hsl(210, 40%, 98%);
+    --color-border: hsl(215, 28%, 34%); /* slate 600 */
+    --color-white: hsl(0, 0%, 100%); /* white */
+
+    --color-link: hsl(199, 94%, 60%); /* blue 400 */
+    --color-link-hover: hsl(211, 91%, 60%); /* blue 500 */
+
+    /*dropdown*/
+    --color-popover: hsl(228, 84%, 5%); /* slate 950 */
+    --color-popover-foreground: hsl(210, 40%, 98%); /* slate 50 */
+    --color-accent: hsl(217, 33%, 17%); /* slate 800  */
+    --color-accent-foreground: hsl(210, 40%, 98%); /* slate 50 */
+  }
 }
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -44,6 +61,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
+
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -52,34 +70,3 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-}
-
-/*
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

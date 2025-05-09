@@ -23,12 +23,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white dark:bg-slate-900 shadow-sm">
-        <div className="flex relative py-4 h-full justify-between w-full items-center max-w-[90rem] mx-auto px-4 2xl:px-0 text-slate-900 dark:text-slate-100">
+      <nav className="bg-primary shadow-lg fixed w-full z-[9999]">
+        <div className="flex relative py-4 h-full justify-between w-full items-center max-w-[90rem] mx-auto px-4 2xl:px-0 text-primary-foreground">
           <div className="">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <Leaf className="w-6 h-6 text-green-500" />
+              <Leaf className="w-6 h-6 text-green" />
               <span className="font-semibold text-xl">{t("nav.logo")}</span>
             </Link>
           </div>
@@ -36,15 +36,21 @@ const Navbar = () => {
            
             <Link
               to="/tips"
-              className="font-semibold tracking-wider text-[16px] text-slate-800 dark:text-slate-100 hover:text-green dark:hover:text-green transition-colors"
+              className="font-semibold tracking-wider text-[16px] text-secondary-foreground hover:text-green transition-colors"
             >
               {t("nav.tips")}
+            </Link>
+            <Link
+              to="/about"
+              className="font-semibold tracking-wider text-[16px] text-secondary-foreground hover:text-green transition-colors"
+            >
+              {t("nav.about")}
             </Link>
           </div>
 
           {/* <div className="absolute flex top-2 right-14 gap-x-4"> */}
           <div className="flex gap-x-4">
-            {/* <LanguageToggle /> */}
+            <LanguageToggle />
             <button
               onClick={handleLanguageChange}
               aria-label="Toggle language"

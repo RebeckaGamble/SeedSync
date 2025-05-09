@@ -19,7 +19,7 @@ const LanguageToggle = () => {
           <span className="sr-only">Toggle language</span>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="mt-4 ">
         <DropdownMenuItem onClick={() => changeLanguage("en")}>
           English
         </DropdownMenuItem>

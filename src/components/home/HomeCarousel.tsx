@@ -33,7 +33,7 @@ const HomeCarousel = () => {
   }, [api]);
 
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-10 bg-white dark:bg-gray-800 overflow-hidden">
+    <section className="py-16 px-4 bg-primary overflow-hidden">
       <div className="container w-full max-w-[90rem] overflow-hidden mx-auto relative">
         <div ref={emblaRef}>
           <div className="flex">
@@ -62,7 +62,7 @@ const HomeCarousel = () => {
                       <Button
                         variant="default"
                         size="lg"
-                        className="mt-4 bg-green text-[18px] tracking-wider dark:text-white hover:bg-green-hover dark:bg-green dark:hover:bg-green-hover"
+                        className="mt-4"
                       >
                         {t("carousel.learnMore")}
                       </Button>

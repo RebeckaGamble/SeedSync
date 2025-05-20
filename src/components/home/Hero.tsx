@@ -40,11 +40,11 @@ const Hero = () => {
             {t("hero.cta")}
           </Button> */}
         </div>
-        <div className="w-full flex md:w-1/2 max-w-[768px] max-h-[600px] justify-center md:items-start overflow-hidden">
+        <div className="w-full flex md:w-1/2 sm:rounded-xl  max-w-[768px] shadow-sm shadow-accent max-h-[600px] justify-center md:items-start overflow-hidden">
           <img
             src={seedSm}
             alt={t("hero.imageAlt")}
-            className="w-auto h-full object-center object-cover sm:rounded-xl"
+            className="w-full h-auto object-center object-cover sm:rounded-xl"
           />
         </div>
       </div>

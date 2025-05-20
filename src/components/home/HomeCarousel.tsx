@@ -38,16 +38,13 @@ const HomeCarousel = () => {
         <div ref={emblaRef}>
           <div className="flex">
             {carouselData.map((slide, index) => (
-    
               <div
-              className="min-w-full " 
-                // className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]" 
+                // className="min-w-full "
+                className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]"
                 key={index}
               >
                 <Link to={slide.link} className="block">
-                  <div
-                    className={`${slide.backgroundColor} ${slide.darkBackgroundColor} md:max-w-[800px] border border-border shadow shadow-slate-400 lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-lg overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300`}
-                  >
+                  <div className="bg-primary md:max-w-[800px] border-2 border-border lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-xl overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300">
                     <div className="absolute inset-0">
                       <img
                         src={slide.image}
@@ -60,12 +57,10 @@ const HomeCarousel = () => {
                       <h2 className="text-[24px] sm:text-3xl md:text-4xl font-bold mb-3 overflow-hidden">
                         {slide.title}
                       </h2>
-                      {slide.text && <p className="text-md sm:text-lg">{slide.text}</p>}
-                      <Button
-                        variant="default"
-                        size="sm"
-                        className="mt-4"
-                      >
+                      {slide.text && (
+                        <p className="text-md sm:text-lg">{slide.text}</p>
+                      )}
+                      <Button variant="default" size="sm" className="mt-4">
                         {t("carousel.learnMore")}
                       </Button>
                     </div>

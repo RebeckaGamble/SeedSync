@@ -33,8 +33,8 @@ const HomeTipsCards = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 px-4 bg-secondary">
-      <div className="container mx-auto">
+    <section className="py-16 sm:py-20 bg-secondary">
+      <div className="w-full px-4 2xl:px-0 max-w-[90rem] mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
           {t("tipsCards.title")}
         </h2>

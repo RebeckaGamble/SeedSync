@@ -12,7 +12,8 @@ export default {
   },
   // Hero
   hero: {
-    title: "Odla smartare med SeedSync",
+    title: "Odla smartare med ",
+    titleSpan: "SeedSync",
     text: "Få koll på vad som behöver göras i din odlingslott, följ din utveckling och ta del av säsongens bästa odlingstips – allt på ett ställe.",
     cta: "Kom igång",
     imageAlt: "Fröplanta i äggskal",
@@ -122,6 +123,29 @@ export default {
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, ipsa.",
       },
     ],
+  },
+  // Testimonials
+  testimonials: {
+   title: "Vad Våra Användare Tycker",
+   content: [
+    {
+      id: 1,
+      text: "Innan använde jag anteckningsblock och lappar överallt för att planera odlingen. Med Seed Sync kan jag enkelt se när det är dags att så, plantera ut och skörda. Det har gjort min planering mycket mer effektiv – i år har jag fått dubbelt så mycket skörd av mina bönor och zucchini. Rekommenderas till alla odlare, nya som erfarna!",
+      name: "Sarah P.",
+      location: "Brunnsviks koloniförening",
+    },
+    {
+      id: 2,
+      text: "Jag har haft kolonilott i över 10 år, men det var först med Seed Sync som jag kände att allt verkligen föll på plats. Jag förodlar mer strukturerat nu och slipper glömma viktiga moment.",
+      name: "Conny Andersson",
+      location: "Östgöta kolonilottsförening",
+    },{
+      id: 3,
+      text: "Jag har alltid gillat att odla på min balkong, men det blev ofta stressigt med förodling och svårt att hålla koll på när jag skulle så vad. Seed Sync har verkligen förenklat allt! Nu får jag påminnelser i rätt tid, och min chili och tomater har aldrig sett bättre ut. Det är som att ha en personlig odlingscoach i fickan.",
+      name: "Melinda Johansson",
+      location: "Hemmaodlare",
+    },
+   ]
   },
   //About
   about: {

@@ -100,6 +100,29 @@ export default {
     title: "Cultivation tips and advice",
     text: "Get seasonal insights and practical tips for every step of your growing process.",
   },
+  // Testimonials
+  testimonials: {
+    title: "What Our Users Say",
+    content: [
+      {
+        id: 1,
+        text: "Before, I used to use notepads and sticky notes everywhere to plan my growing. With Seed Sync, I can easily see when it's time to sow, plant out, and harvest. It's made my planning much more efficient - this year I've gotten twice as much from my beans and zucchini. Recommended for all growers, new and experienced!",
+        name: "Sarah P.",
+        location: "Brunnsviks koloniförening",
+      },
+      {
+        id: 2,
+        text: "I've had allotments for over 10 years, but it was only with Seed Sync that I felt like everything really fell into place. I grow in a more structured way now and don't forget important points.",
+        name: "Conny Andersson",
+        location: "Östgöta kolonilottsförening",
+      },{
+        id: 3,
+        text: "I've always enjoyed growing on my balcony, but it often became stressful with pre-cultivation and hard to keep track of when to sow what. Seed Sync has really simplified everything! Now I get reminders at the right time, and my chili and tomatoes have never looked better. It's like having a personal growing coach in your pocket.",
+        name: "Melinda Johansson",
+        location: "Hemmaodlare",
+      },
+    ]
+   },
   // FAQ Section
   faq: {
     title: "Frequently Asked Questions",

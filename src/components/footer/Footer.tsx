@@ -1,6 +1,7 @@
+import { navLinkClass } from "@/styles/styles";
 import { Leaf } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -18,26 +19,24 @@ const Footer = () => {
                   {t("footer.logo")}
                 </span>
               </Link>
-              <p className="text-secondary-foreground text-[14px]">
+              <p className="text-secondary-foreground pt-2 text-[14px]">
                 {t("footer.logoText")}
               </p>
             </div>
-            <div className="flex sm:pl-4 sm:justify-center flex-wrap gap-4 w-full mx-auto items-center text-primary-foreground">
-              <Link
-                to="/tips"
-                className="font-semibold tracking-wider text-[16px] text-secondary-foreground hover:text-green transition-colors"
-              >
-                {t("footer.tips")}
-              </Link>
-              <Link
-                to="/about"
-                className="font-semibold tracking-wider text-[16px] text-secondary-foreground hover:text-green transition-colors"
-              >
-                {t("footer.about")}
-              </Link>{" "}
-              <p>link here</p>
-              <p>link here</p>
-            </div>
+            <ul className="flex sm:pl-4 sm:justify-center flex-wrap gap-4 w-full mx-auto items-center text-primary-foreground">
+              <li>
+                <NavLink to="/tips" className={navLinkClass}>
+                  {t("footer.tips")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" className={navLinkClass}>
+                  {t("footer.about")}
+                </NavLink>{" "}
+              </li>
+              <li>link here</li>
+              <li>link here</li>
+            </ul>
           </div>
         </div>
         <div className="border-t border-border"></div>

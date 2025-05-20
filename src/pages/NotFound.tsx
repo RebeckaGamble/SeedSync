@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate()
 
   useEffect(() => {
     console.error(
@@ -17,9 +18,10 @@ const NotFound = () => {
         <p className="text-xl text-secondary-foreground mb-4">
           Oops! Page not found
         </p>
-        <a href="/" className="text-link hover:text-link-hover underline">
+        <button onClick={()=> navigate('/')} className="text-link hover:text-link-hover underline">Go to homepage</button>
+        {/* <a href="/" className="text-link hover:text-link-hover underline">
           Return to home
-        </a>
+        </a> */}
       </div>
     </div>
   );

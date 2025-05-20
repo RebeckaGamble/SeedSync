@@ -1,27 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import { ThemeProvider } from "./components/ThemeProvider";
-import NotFound from "./pages/NotFound";
-import Tips from "./pages/Tips";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import About from "./pages/About";
-import './index.css'
-
+import "./index.css";
+import { ThemeProvider } from "./components/navbar/ThemeProvider";
+import { DialogProvider } from "./context/DialogContext";
+import { UserAuthProvider } from "./context/UserAuthContext";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
   return (
     <ThemeProvider defaultTheme="light">
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="tips" element={<Tips />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <UserAuthProvider>
+        <DialogProvider>
+          <AppRouter />
+        </DialogProvider>
+      </UserAuthProvider>
     </ThemeProvider>
   );
 }

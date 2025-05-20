@@ -19,7 +19,7 @@ const HomeCarousel = () => {
 
   const carouselData = getCarouselData(t);
 
-  // Set total count of slides
+  // Set tot count of slides
   useEffect(() => {
     setCount(carouselData.length);
   }, []);
@@ -33,18 +33,20 @@ const HomeCarousel = () => {
   }, [api]);
 
   return (
-    <section className="py-16 px-4 bg-primary overflow-hidden">
+    <section className="py-16 sm:py-20 px-4 bg-primary overflow-hidden">
       <div className="container w-full max-w-[90rem] overflow-hidden mx-auto relative">
         <div ref={emblaRef}>
           <div className="flex">
             {carouselData.map((slide, index) => (
+    
               <div
-                className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]"
+              className="min-w-full " 
+                // className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]" 
                 key={index}
               >
                 <Link to={slide.link} className="block">
                   <div
-                    className={`${slide.backgroundColor} ${slide.darkBackgroundColor} md:max-w-[800px] lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-lg overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300 hover:shadow-md`}
+                    className={`${slide.backgroundColor} ${slide.darkBackgroundColor} md:max-w-[800px] border border-border shadow shadow-slate-400 lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-lg overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300`}
                   >
                     <div className="absolute inset-0">
                       <img
@@ -54,14 +56,14 @@ const HomeCarousel = () => {
                       />
                       <div className="absolute inset-0 bg-black/50"></div>
                     </div>
-                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-6 md:p-10">
-                      <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4 md:p-10 ">
+                      <h2 className="text-[24px] sm:text-3xl md:text-4xl font-bold mb-3 overflow-hidden">
                         {slide.title}
                       </h2>
-                      {slide.text && <p className="text-lg">{slide.text}</p>}
+                      {slide.text && <p className="text-md sm:text-lg">{slide.text}</p>}
                       <Button
                         variant="default"
-                        size="lg"
+                        size="sm"
                         className="mt-4"
                       >
                         {t("carousel.learnMore")}
@@ -78,7 +80,7 @@ const HomeCarousel = () => {
         {!isMobile && (
           <>
             <button
-              className="absolute left-2 xl:left-0 top-1/2 transform -translate-y-1/2 text-slate-900 dark:text-slate-100 bg-white opacity-80 hover:opacity-100 dark:bg-slate-900 p-2 rounded-full"
+              className="absolute md:hidden left-2 xl:left-0 top-1/2 transform -translate-y-1/2 text-slate-900 dark:text-slate-100 bg-white opacity-80 hover:opacity-100 dark:bg-slate-900 p-2 rounded-full"
               onClick={() => api?.scrollPrev()}
               disabled={!api?.canScrollPrev()}
             >
@@ -86,7 +88,7 @@ const HomeCarousel = () => {
               <span className="sr-only">Previous slide</span>
             </button>
             <button
-              className="absolute right-2 xl:right-0 top-1/2 transform -translate-y-1/2 text-slate-900 dark:text-slate-100 bg-white opacity-80 hover:opacity-100 dark:bg-slate-900 p-2 rounded-full"
+              className="absolute md:hidden right-2 xl:right-0 top-1/2 transform -translate-y-1/2 text-slate-900 dark:text-slate-100 bg-white opacity-80 hover:opacity-100 dark:bg-slate-900 p-2 rounded-full"
               onClick={() => api?.scrollNext()}
               disabled={!api?.canScrollNext()}
             >

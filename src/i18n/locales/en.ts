@@ -4,22 +4,49 @@ export default {
     logo: "SeedSync",
     tips: "Tips",
     about: "About",
+    contact: "Contact",
+    admin: "Admin",
+    profile: "Profile",
+    calendar: "Calendar",
+    loginBtnAriaLabel: "Log in",
   },
   // Hero
   hero: {
-    title: "Title coming here",
-    text: "Some text here ",
+    title: "Grow Smarter with ",
+    titleSpan: "SeedSync",
+    text: "Stay on top of your cultivation schedule, track your progress, and get seasonal gardening tips — all in one place. ",
     cta: "Get Started",
+    imageAlt: "Seedling in an eggshell",
   },
   // Login
   login: {
-    title: "Login",
-    subtitle: "Lorem",
+    title: "Sign in to SeedSync",
+    subtitle: "Welcome back! Sign in to stay on top of your garden.",
+    googleLogin: "Sign in with Google",
+    or: "Or",
     email: "Email",
     password: "Password",
     loginBtn: "Login",
     account: "Dont have an account? Go to ",
     link: "Create Account",
+  },
+  // Create account
+  createAccount: {
+    title: "Create an account",
+    subtitle: "Start planning your garden in seconds — it's quick and easy!",
+    googleSignin: "Sign up with Google",
+    email: "Email",
+    password: "Password",
+    confirmPassword: "Confirm password",
+    submitBtn: "Submit",
+    account: "Already have an account? Go to ",
+    link: "Login",
+    errors: {
+      emailRequired: "Email is required",
+      passwordRequired: "Password is required",
+      confirmPasswordRequired: "Confirm password is required",
+      passwordMismatch: "Passwords must match",
+    },
   },
   // Carousel - home
   carousel: {
@@ -42,7 +69,7 @@ export default {
     learnMore: "Learn More",
   },
   // Tip Cards
-  homeCards: {
+  tipsCards: {
     title: "This month in your cultivation",
     content: [
       {
@@ -67,6 +94,11 @@ export default {
         cardIcon: "droplet",
       },
     ],
+  },
+  // Tips page
+  tips: {
+    title: "Cultivation tips and advice",
+    text: "Get seasonal insights and practical tips for every step of your growing process.",
   },
   // FAQ Section
   faq: {
@@ -122,6 +154,7 @@ export default {
       "We created SeedSync out of pure love for gardening – to help more people enjoy the full journey from seed to plate.",
     quoteAuthor: "— The SeedSync Team",
   },
+
   // Footer
   footer: {
     logo: "SeedSync",

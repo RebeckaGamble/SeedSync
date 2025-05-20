@@ -1,72 +1,83 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* @custom-variant dark (&:is(.dark *)); */
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scrollbar-gutter: stable;
+}
+body {
+  overflow-y: scroll;
+}
+
+a.active {
+  color: hsl(145, 63%, 45%);
+}
+
+@keyframes glow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 @theme {
-  --color-primary: hsl(0, 0%, 100%); /* white */
-  --color-primary-foreground: hsl(222, 47%, 11%); /* slate-900*/
-  --color-secondary: hsl(138, 76%, 97%); /* green 50 */
-  --color-secondary-foreground: hsl(215, 32%, 17%); /* slate-800 */
+  --color-primary: oklch(1 0 0); /* white */
+  --color-primary-foreground: oklch(0.14 0.02 262); /* slate-900 */
+  --color-secondary: oklch(0.9855 0.004 264.5); /* slate-50 */
+  --color-slate100: oklch(0.95 0.011 245); /* slate-100 */
+  --color-green50: oklch(0.927 0.031 129.65); /* green-50 */
+  --color-secondary-foreground: oklch(0.19 0.02 263); /* slate-800 */
 
-  --color-green: hsl(145, 63%, 45%); /* green-500 */
-  --color-green-hover: hsl(142, 71%, 45%); /* green-600 */
+  --color-green: oklch(0.553 0.206 140.14); /* green-500 */
+  --color-green-hover: oklch(0.624 0.201 142); /* green-600 */
 
-  --color-border: hsl(214, 32%, 85%); /* slate 300 */
-  --color-white: hsl(0, 0%, 100%); /* white */
+  --color-border: oklch(0.85 0.04 262); /* slate-300 */
+  --color-white: oklch(1 0 0); /* white */
 
-  --color-slate-100: hsl(210, 40%, 96%); /* slate-100*/
-  --color-slate-600: hsl(215, 28%, 34%); /* slate-600*/
-  --color-slate-800: hsl(215, 32%, 17%); /* slate-800*/
-  --color-slate-900: hsl(222, 47%, 11%); /* slate-900*/
+  --color-slate-100: oklch(0.95 0.011 245); /* slate-100 */
+  --color-slate-600: oklch(0.33 0.04 263); /* slate-600 */
+  --color-slate-800: oklch(0.19 0.02 263); /* slate-800 */
+  --color-slate-900: oklch(0.14 0.02 262); /* slate-900 */
 
-  --color-red-400: hsl(0, 90%, 71%); /* red-400 */
+  --color-red-400: oklch(0.611 0.362 13.59); /* red-400 */
 
-  --color-link: hsl(211, 91%, 60%); /* blue-500 */
-  --color-link-hover: hsl(221, 79%, 48%); /* blue-700 */
+  --color-link: oklch(0.62 0.191 233); /* blue-500 */
+  --color-link-hover: oklch(0.55 0.186 245); /* blue-700 */
 
-  /*dropdown*/
-  --color-popover: hsl(0 0% 100%); /* white */
-  --color-popover-foreground: hsl(222.2 84% 4.9%); /* slate 950 */
-  --color-accent: hsl(210, 40%, 96%); /* slate 100*/
-  --color-accent-foreground: hsl(222, 47%, 11%); /* slate 900 */
+  /* Dropdown */
+  --color-popover: oklch(1 0 0); /* white */
+  --color-popover-foreground: oklch(0.04 0.039 262); /* slate 950 */
+  --color-accent: oklch(0.95 0.011 245); /* slate 100 */
+  --color-accent-foreground: oklch(0.14 0.02 262); /* slate 900 */
+
+  --color-ring: oklch(0.696 0.353 261.34); /* violet 300 */
+  --color-destructive: oklch(0.704 0.191 22.216); /* orange-500 / amber-500 */
 }
 
 @layer theme {
   .dark {
-    --color-primary: hsl(222, 47%, 11%); /* slate 900 */
-    --color-primary-foreground: hsl(210, 40%, 96%); /* slate 100 */
-    --color-secondary: hsl(215, 32%, 17%); /* slate-800 */
-    --color-secondary-foreground: hsl(210, 40%, 93%); /* slate 200 */
+    --color-primary: oklch(0.14 0.02 262); /* slate-900 */
+    --color-primary-foreground: oklch(0.945 0.012 246); /* slate-100 */
 
-    --color-green: hsl(142, 71%, 45%); /* green-600 */
-    --color-green-hover: hsl(145, 71%, 29%); /*green-700 */
+    --color-secondary: oklch(0.19 0.02 263); /* slate-800 */
+    --color-secondary-foreground: oklch(0.91 0.015 246); /* slate-200 */
 
-    --color-border: hsl(215, 28%, 34%); /* slate 600 */
-    --color-white: hsl(0, 0%, 100%); /* white */
+    --color-green: oklch(0.624 0.201 142); /* green-600 */
+    --color-green-hover: oklch(0.49 0.183 145); /* green-700 */
 
-    --color-link: hsl(199, 94%, 60%); /* blue 400 */
-    --color-link-hover: hsl(211, 91%, 60%); /* blue 500 */
+    --color-border: oklch(0.33 0.04 263); /* slate-600 */
+    --color-white: oklch(1 0 0); /* white */
 
-    /*dropdown*/
-    --color-popover: hsl(228, 84%, 5%); /* slate 950 */
-    --color-popover-foreground: hsl(210, 40%, 98%); /* slate 50 */
-    --color-accent: hsl(217, 33%, 17%); /* slate 800  */
-    --color-accent-foreground: hsl(210, 40%, 98%); /* slate 50 */
+    --color-link: oklch(0.7 0.21 233); /* blue-400 */
+    --color-link-hover: oklch(0.68 0.2 245); /* blue-500 */
+
+    /* Dropdown */
+    --color-popover: oklch(0.07 0.015 263); /* slate-950 */
+    --color-popover-foreground: oklch(0.98 0.005 246); /* slate-50 */
+    --color-accent: oklch(0.19 0.02 263); /* slate-800 */
+    --color-accent-foreground: oklch(0.98 0.005 246); /* slate-50 */
+
+    --color-ring: oklch(0.551 0.027 264.364); /* indigo-300 */
+    --destructive: oklch(0.704 0.191 22.216); /* orange-400 */
   }
-}
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

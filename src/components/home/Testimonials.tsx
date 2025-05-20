@@ -1,17 +1,17 @@
 import { testimonials, flowers } from "../../assets";
-import { useTheme } from "../ThemeProvider";
+import { useTheme } from "../navbar/ThemeProvider";
 
 const Testimonials = () => {
-    const { theme } = useTheme()
+  const { theme } = useTheme();
 
-    const resolveTheme = 
-    theme === "system" 
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches 
-      ? "dark" 
-      : "light"
-    : theme
+  const resolveTheme =
+    theme === "system"
+      ? window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+      : theme;
 
-    const selectedImage = resolveTheme === "light" ? flowers : testimonials
+  const selectedImage = resolveTheme === "light" ? flowers : testimonials;
 
   return (
     <div className="relative bg-primary h-[400px]">

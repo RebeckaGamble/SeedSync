@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { pots } from "../assets";
-import AboutTeamCards from "../components/about/AboutTeamCards";
+import AboutTeamCards from "@/components/about/AboutTeamCards";
+
 
 const About = () => {
   const { t } = useTranslation();

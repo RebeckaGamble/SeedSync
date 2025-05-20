@@ -4,22 +4,48 @@ export default {
     logo: "SeedSync",
     tips: "Tips",
     about: "Om oss",
+    contact: "Kontakta oss",
+    admin: "Admin",
+    profile: "Profil",
+    calendar: "Kalender",
+    loginBtnAriaLabel: "Logga in",
   },
   // Hero
   hero: {
-    title: "Titel kommer här ",
-    text: "Någon text här ",
-    cta: "Starta här",
+    title: "Odla smartare med SeedSync",
+    text: "Få koll på vad som behöver göras i din odlingslott, följ din utveckling och ta del av säsongens bästa odlingstips – allt på ett ställe.",
+    cta: "Kom igång",
+    imageAlt: "Fröplanta i äggskal",
   },
   // Login
   login: {
-    title: "Logga in",
-    subtitle: "Lorem",
+    title: "Logga in på SeedSync",
+    subtitle: "Välkommen tillbaka! Logga in för att hålla koll på din odling.",
+    googleLogin: "Logga in med Google",
+    or: "Eller",
     email: "Epost",
     password: "Lösenord",
     loginBtn: "Logga in",
     account: "Har du inget konto? Gå till ",
     link: "Skapa Konto",
+  },
+  // Skapa konto
+  createAccount: {
+    title: "Skapa ett konto",
+    subtitle: "Kom igång med din odlingsplanering. Det tar bara ett ögonblick!",
+    googleSignin: "Registrera dig med Google",
+    email: "Epost",
+    password: "Lösenord",
+    confirmPassword: "Bekräfta lösenord",
+    submitBtn: "Skicka",
+    account: "Har du redan ett konto? Gå till ",
+    link: "Logga in",
+    errors: {
+      emailRequired: "Ange giltig Epost ",
+      passwordRequired: "Ange giltigt lösenord",
+      confirmPasswordRequired: "Bekräfta lösenord",
+      passwordMismatch: "Lösenorden måste matcha",
+    },
   },
   // Carousel - home
   carousel: {
@@ -36,13 +62,13 @@ export default {
       text: "Få ut det mesta av dina sensäsongsgrödor",
     },
     winter: {
-      title: "Vinterträdgårdsförberedelser",
+      title: "Vinter förberedelser",
       text: "Skydda din jord och planera för nästa år",
     },
     learnMore: "Läs mer",
   },
   // Tip Cards
-  homeCards: {
+  tipsCards: {
     title: "Denna månad i din odling",
     content: [
       {
@@ -67,6 +93,11 @@ export default {
         cardIcon: "droplet",
       },
     ],
+  },
+   // Tips page
+   tips: {
+    title: "Odlings tips och råd",
+    text: "Få säsongsbetonade insikter och praktiska tips för varje steg i din odling.",
   },
   // FAQ Section
   faq: {

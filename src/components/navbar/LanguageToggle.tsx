@@ -9,13 +9,16 @@ import {
 import { Button } from "../ui/button";
 
 const LanguageToggle = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const changeLanguage = (lng: string) => i18n.changeLanguage(lng);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none">
+        <Button
+          aria-label={t("nav.languageBtnAriaLabel")}
+          className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+        >
           <Globe className="w-4 h-4" />
           <span className="sr-only">Toggle language</span>
         </Button>

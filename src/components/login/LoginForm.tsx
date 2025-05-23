@@ -5,7 +5,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
-import type { UserLogin } from "../types";
+import type { UserLogin } from "../../types";
 import { useUserAuth } from "@/context/UserAuthContext";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -21,7 +21,7 @@ type LoginProps = {
 
 const LoginForm = ({ onSwitch, onCloseDialog }: LoginProps) => {
   const { t } = useTranslation();
-  const { googleSignIn, logIn, user } = useUserAuth();
+  const { googleSignIn, logIn } = useUserAuth();
   const [userLoginInfo, setUserLoginInfo] =
     React.useState<UserLogin>(initialValue);
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -30,9 +30,6 @@ const LoginForm = ({ onSwitch, onCloseDialog }: LoginProps) => {
   const handleGoogleSignIn = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     try {
-      // await googleSignIn();
-
-      // navigate(`/profile/${user?.uid}`);
       const userCredentials = await googleSignIn();
       navigate(`/profile/${userCredentials.user.uid}`);
     } catch (error) {
@@ -47,21 +44,21 @@ const LoginForm = ({ onSwitch, onCloseDialog }: LoginProps) => {
         userLoginInfo.email,
         userLoginInfo.password
       );
-      const loggedInUser = userCredentials.user;
+
+      const tokenResult = await userCredentials.user.getIdTokenResult();
+      const isAdmin = !!tokenResult.claims.admin;
 
       setUserLoginInfo(initialValue);
 
-      if (user?.isAdmin) {
+      if (isAdmin) {
         navigate("/admin");
       } else {
-        navigate(`/profile/${loggedInUser.uid}`);
+        navigate("/profile");
       }
 
       onCloseDialog();
-
-      navigate(`/profile/${loggedInUser.uid}`);
     } catch (error) {
-      console.error("Error creating account");
+      console.error("Error creating account", error);
     }
   };
 

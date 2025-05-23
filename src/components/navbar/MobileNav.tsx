@@ -72,11 +72,6 @@ const MobileNav: React.FC<MobileProps> = ({ isMenuOpen, toggleMobMenu }) => {
                 {t("nav.profile")}
               </NavLink>
             </DialogClose>
-            <DialogClose asChild>
-              <NavLink to={`/calendar/${user.uid}`} className={navLinkClass}>
-                {t("nav.calendar")}
-              </NavLink>
-            </DialogClose>
           </>
         )}
         <div className="border-t border:border text-secondary-foreground flex space-x-4 pt-4">

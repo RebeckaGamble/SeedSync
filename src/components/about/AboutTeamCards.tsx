@@ -27,17 +27,17 @@ const AboutTeamCards = () => {
   };
 
   return (
-    <section className="bg-secondary py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-secondary py-10 md:py-16">
+      <div className="mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-12 text-center">
           {t("about.subtitle")}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto px-4 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-[90rem] 2xl:px-0 mx-auto">
           {/* mappa ut kort här */}
           {teamData.map((member) => (
             <Card
               key={member.id}
-              className="border-border border-b-4 hover:border-b-green h-full hover:shadow-md transition-shadow"
+              className="border-border border-b-4 hover:border-b-green h-full hover:shadow-md transition-shadow mx-auto max-w-[540px]"
             >
               <CardHeader className="flex flex-col items-center gap-4 pb-0 group">
                 <div className="relative h-44 w-44 mb-2 rounded-full overflow-hidden bg-primary shadow-inner">
@@ -54,7 +54,9 @@ const AboutTeamCards = () => {
               <CardContent>
                 <CardDescription className="flex flex-col space-y-4 text-base">
                   <span className="text-green">{member.does}</span>
-                  <span className="text-secondary-foreground">{member.text}</span>
+                  <span className="text-secondary-foreground">
+                    {member.text}
+                  </span>
                 </CardDescription>
               </CardContent>
             </Card>

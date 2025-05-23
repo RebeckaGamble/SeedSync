@@ -5,11 +5,21 @@ import { useTranslation } from "react-i18next";
 import CreateTipsForm from "../forms/CreateTipsForm";
 import Form from "../forms/Form";
 import { useState } from "react";
+import type { Tip } from "@/types/tip";
 
 const HandleTips = () => {
   const { t } = useTranslation();
 
-  const tips = t("homeCards.content", { returnObjects: true }) as Array<any>;
+  // const tipsData = t("tipsCards.content", { returnObjects: true }) as {
+  //   id: string;
+  //   cardTitle: string;
+  //   cardDescription: string;
+  //   cardIcon: string;
+  // }[];
+  const tipsData = t("tipsCards.content", { returnObjects: true }) as Tip[];
+
+
+  // const tips = t("homeCards.content", { returnObjects: true }) as Array<any>;
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const toggleForm = () => {
@@ -30,7 +40,7 @@ const HandleTips = () => {
       </Form>
       {/* Current tips */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tips.map((tip: any) => (
+        {tipsData.map((tip: any) => (
           <form
             action=""
             key={tip.id}

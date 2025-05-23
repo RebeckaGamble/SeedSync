@@ -21,7 +21,7 @@ const UserForm: React.FC<LoginDialogProps> = ({
   const [isRegister, setIsRegister] = useState(false);
 
   const onCloseDialog = () => {
-    toggleLoginDialog(false); 
+    toggleLoginDialog(false);
   };
 
   return (
@@ -35,7 +35,10 @@ const UserForm: React.FC<LoginDialogProps> = ({
         {isRegister ? (
           <RegisterForm onSwitch={() => setIsRegister(false)} />
         ) : (
-          <LoginForm onCloseDialog={onCloseDialog} onSwitch={() => setIsRegister(true)} />
+          <LoginForm
+            onCloseDialog={onCloseDialog}
+            onSwitch={() => setIsRegister(true)}
+          />
         )}
       </DialogContent>
     </Dialog>

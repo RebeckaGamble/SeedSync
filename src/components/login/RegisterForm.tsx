@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { DialogDescription, DialogTitle } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import type { CreateUserAccount } from "../types";
+import type { CreateUserAccount } from "../../types";
 import { useUserAuth } from "@/context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -26,7 +26,8 @@ const RegisterForm = ({ onSwitch }: CreateAccountProps) => {
   const [userInfo, setUserInfo] =
     React.useState<CreateUserAccount>(initialValue);
   const [passwordVisible, setPasswordVisible] = React.useState(false);
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = React.useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] =
+    React.useState(false);
 
   const [errors, setErrors] = React.useState<Partial<CreateUserAccount>>({});
   const navigate = useNavigate();

@@ -29,7 +29,7 @@ const FaqSection = () => {
       >
         {content.map((faq) => (
           <AccordionItem key={faq.id} value={faq.id} className="border-border">
-            <AccordionTrigger className="text-lg font-medium py-4 justify-between text-primary-foreground hover:text-green-hover transition-colors">
+            <AccordionTrigger className="text-lg font-medium text-start py-4 justify-between text-primary-foreground hover:text-green-hover transition-colors">
               {faq.question}
             </AccordionTrigger>
             <AccordionContent className="text-secondary-foreground pb-6 text-base">

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Leaf, LogIn, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -13,14 +13,11 @@ import UserForm from "../login/UserForm";
 import "../../i18n/i18n";
 
 const Navbar = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isLoginOpen, setIsLoginOpen } = useDialog();
-  // const handleLanguageChange = () => {
-  //   i18n.changeLanguage(i18n.language === "en" ? "sv" : "en");
-  //   console.log("toggle lang");
-  // };
+  const navigate = useNavigate();
 
   const { user, logOut } = useUserAuth();
 
@@ -28,6 +25,7 @@ const Navbar = () => {
     try {
       await logOut();
       console.log("Successfully logged out");
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -89,6 +87,7 @@ const Navbar = () => {
               {t("nav.about")}
             </NavLink>
           </li>
+          {/* Show when admin is logged in */}
           {user?.isAdmin && (
             <li>
               <NavLink to="/admin" className={navLinkClass}>
@@ -96,16 +95,13 @@ const Navbar = () => {
               </NavLink>
             </li>
           )}
+                    {/* Show when user is logged in */}
+
           {user && !user.isAdmin && (
             <>
               <li>
-                <NavLink to={`/profile/${user.uid}`} className={navLinkClass}>
+                <NavLink to="/profile" className={navLinkClass}>
                   {t("nav.profile")}
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to={`/calendar/${user.uid}`} className={navLinkClass}>
-                  {t("nav.calendar")}
                 </NavLink>
               </li>
             </>
@@ -115,25 +111,17 @@ const Navbar = () => {
         <div className="flex gap-x-4 items-center">
           <div className="hidden md:flex gap-x-4">
             <LanguageToggle />
-            {/* <button
-              onClick={handleLanguageChange}
-              aria-label="Toggle language"
-              className="flex gap-x-1 items-center"
-            >
-              <Globe className="h-[16px] w-[16px]" />
-              <span>{i18n.language === "en" ? "🇸🇪" : "🇬🇧"}</span>
-            </button> */}
             <ThemeToggle />
           </div>
           {/* Login/Create Account Button */}
           {user ? (
             <button
               onClick={handleLogout}
-              aria-label="Logout"
+              aria-label={t("nav.logout")}
               className="flex items-center gap-1"
             >
               <LogOut className="w-5 h-5 text-red-600" />
-              <span className="">Logout</span>
+              <span className="">{t("nav.logout")}</span>
             </button>
           ) : (
             <button

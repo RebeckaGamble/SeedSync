@@ -10,10 +10,8 @@ import {
   Tips,
   NotFound,
   Profile,
-  Calendar,
 } from "@/pages";
 import { RootLayout, TipsLayout } from "@/layout";
-import { useUserAuth } from "@/context/UserAuthContext";
 import TipsDetails from "@/components/tips/TipsDetails";
 import ProtectedRoute from "@/components/auth/ProtectedRoutes";
 import Error from "@/components/tips/Error";
@@ -24,7 +22,6 @@ import HandleTips from "@/components/admin/handle-tips/HandleTips";
 import HandleFaq from "@/components/admin/faq/HandleFaq";
 
 const AppRouter = () => {
-  const { user } = useUserAuth();
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -41,9 +38,8 @@ const AppRouter = () => {
           />
         </Route>
         {/* Protected Routes for auth users */}
-        <Route element={<ProtectedRoute isAuthUser={!!user} />}>
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/calendar/:id" element={<Calendar />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
         </Route>
         {/* Admin only */}
         <Route element={<AdminRoute />}>

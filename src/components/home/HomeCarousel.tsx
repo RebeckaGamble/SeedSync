@@ -39,28 +39,35 @@ const HomeCarousel = () => {
           <div className="flex">
             {carouselData.map((slide, index) => (
               <div
-                // className="min-w-full "
-                className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]"
+                className="min-w-full "
+                // className="min-w-full lg:min-w-[55rem] xl:min-w-[64rem]"
                 key={index}
               >
-                <Link to={slide.link} className="block">
+                <Link to={slide.link ?? "#"} className="block">
                   <div className="bg-primary md:max-w-[800px] border-2 border-border lg:max-w-[800px] xl:max-w-[1000px] mx-auto rounded-xl overflow-hidden relative h-64 md:h-80 transition-all items-start duration-300">
                     <div className="absolute inset-0">
                       <img
                         src={slide.image}
-                        alt={slide.title}
+                        alt={slide.cardTitle}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/50"></div>
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4 md:p-10 ">
                       <h2 className="text-[24px] sm:text-3xl md:text-4xl font-bold mb-3 overflow-hidden">
-                        {slide.title}
+                        {slide.cardTitle}
                       </h2>
-                      {slide.text && (
-                        <p className="text-md sm:text-lg">{slide.text}</p>
+                      {slide.cardDescription && (
+                        <p className="text-md sm:text-lg">
+                          {slide.cardDescription}
+                        </p>
                       )}
-                      <Button variant="default" size="sm" className="mt-4">
+                      <Button
+                        variant="default"
+                        size="sm"
+                        className="mt-4"
+                        aria-label={t("carousel.readMoreAriaLabel")}
+                      >
                         {t("carousel.learnMore")}
                       </Button>
                     </div>
@@ -104,7 +111,7 @@ const HomeCarousel = () => {
                   : "w-2 bg-gray-300 dark:bg-gray-600"
               }`}
               onClick={() => api?.scrollTo(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={t("carousel.indicatorAriaLabel") + `${index + 1}`}
             />
           ))}
         </div>

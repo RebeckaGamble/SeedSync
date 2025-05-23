@@ -33,8 +33,9 @@ const signUp = (email: string, password: string) => {
   return createUserWithEmailAndPassword(auth, email, password);
 };
 
-const logOut = () => {
-  return signOut(auth);
+const logOut = async () => {
+  await signOut(auth);
+  window.location.href = "/";
 };
 
 const googleSignIn = () => {

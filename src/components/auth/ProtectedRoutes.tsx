@@ -1,22 +1,18 @@
 import { useUserAuth } from "@/context/UserAuthContext";
-import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-type ProtectedRouteProps = {
-  isAuthUser: boolean;
-};
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ isAuthUser }) => {
-  const { user } = useUserAuth();
+const ProtectedRoute: React.FC = () => {
   const location = useLocation();
-  const { id } = useParams();
+  const { user } = useUserAuth();
 
-  if (!isAuthUser) {
-    return <Navigate to="/" state={{ from: location }} />;
+  if (user === undefined) {
+    return <div>Loading...</div>;
   }
 
-  if (id && user?.uid !== id) {
-    return <Navigate to={`/profile/${user?.uid}`} />;
+  if (!user) {
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
+
   return <Outlet />;
 };
 

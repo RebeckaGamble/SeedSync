@@ -36,14 +36,16 @@ const Testimonials = () => {
   const selectedImage = resolveTheme === "light" ? flowers : testimonials;
 
   return (
-    <div className="relative bg-primary h-[400px]">
+    <div className="relative bg-primary h-[440px]">
       <img
         src={selectedImage}
         alt="Flowers"
         className="absolute inset-0 w-full object-cover h-full"
       />
       <div className="relative backdrop-blur-[1px] z-10 w-full h-full flex flex-col items-center pb-4 pt-12 justify-between text-primary-foreground">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold pb-5 md:pb-10">{t("testimonials.title")}</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold pb-10">
+          {t("testimonials.title")}
+        </h1>
         <div className="relative h-full w-full max-w-[90rem] mx-auto">
           {testimonialsData.map((test, index) => (
             <div
@@ -55,7 +57,10 @@ const Testimonials = () => {
               }`}
             >
               <blockquote className="px-4 h-full flex flex-col text-center w-full space-y-4">
-                <p className="text-[16px] text-secondary-foreground max-w-[920px] mx-auto sm:text-xl md:text-2xl font-light italic mb-6">
+                <p
+                  style={{ textShadow: "1px 0.5px gray" }}
+                  className="text-[16px] text-secondary-foreground max-w-[920px] mx-auto sm:text-xl md:text-2xl font-light italic mb-6"
+                >
                   {test.text}
                 </p>
                 <div className="flex flex-col space-y-2 text-primary-foreground">

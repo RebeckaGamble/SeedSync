@@ -33,7 +33,7 @@ const DialogContent = React.forwardRef<
   <DialogPrimitive.Portal>
     <DialogPrimitive.Content
       ref={ref}
-      className={cn("", className)}
+      className={cn("z-20", className)}
       {...props}
     ></DialogPrimitive.Content>
   </DialogPrimitive.Portal>

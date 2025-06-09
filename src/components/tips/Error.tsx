@@ -16,7 +16,7 @@ const Error = () => {
         <h3 className="text-secondary-foreground text-2xl">
           {t("error.title")}
         </h3>
-        <p className="text-secondary-foreground italic">'{error.message}'</p>
+        <p className="text-secondary-foreground italic">{error.message}</p>
         <button
           className="underline text-link hover:text-link-hover"
           onClick={() => navigate("/")}

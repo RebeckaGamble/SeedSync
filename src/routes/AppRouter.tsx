@@ -12,7 +12,6 @@ import {
   Profile,
 } from "@/pages";
 import { RootLayout, TipsLayout } from "@/layout";
-import TipsDetails from "@/components/tips/TipsDetails";
 import ProtectedRoute from "@/components/auth/ProtectedRoutes";
 import Error from "@/components/tips/Error";
 import AdminRoute from "../components/auth/AdminRoute";
@@ -27,15 +26,9 @@ const AppRouter = () => {
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
-        {/* <Route path="tips" element={<Tips />} /> */}
         <Route path="about" element={<About />} />
         <Route path="tips" element={<TipsLayout />} errorElement={<Error />}>
-          <Route index element={<Tips />} /> {/** loader={tipsLoader}  */}
-          <Route
-            path=":id"
-            element={<TipsDetails />}
-            // loader={tipDetailsLoader}
-          />
+          <Route index element={<Tips />} />
         </Route>
         {/* Protected Routes for auth users */}
         <Route element={<ProtectedRoute />}>

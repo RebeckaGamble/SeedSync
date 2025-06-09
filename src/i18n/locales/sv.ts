@@ -12,6 +12,8 @@ export default {
     themeBtnAriaLabel: "Växla mellan mörkt/ljust tema",
     loginBtnAriaLabel: "Logga in",
     logout: "Logga ut",
+    login: "Logga in"
+
   },
   // Hero
   hero: {
@@ -196,6 +198,40 @@ export default {
     showAllAriaLabel: "Visa alla tips",
     readMoreBtnAriaLabel: "Klicka för att läsa hela beskrivningen",
     scrollToTopAriaLabel: "Gå till toppen av tipssektionen",
+  },
+   // Step by Step section
+  steps: {
+    title: "Hur det fungerar",
+    content: [
+      {
+        id: 1,
+        cardTitle: "Bli inspirerad",
+        cardDescription:
+          "Upptäck trädgårdsidéer och planera din perfekta trädgårdsplanering",
+        cardIcon: "lightbulb",
+      },
+      {
+        id: 2,
+        cardTitle: "Skapa ett konto",
+        cardDescription:
+          "Registrera dig för att börja följa din trädgårdsresa",
+        cardIcon: "userplus",
+      },
+      {
+        id: 3,
+        cardTitle: "Börja planera",
+        cardDescription:
+          "Använd vår uppgiftstabell och kalender för att organisera dina trädgårdsaktiviteter",
+        cardIcon: "calendar",
+      },
+      {
+        id: 4,
+        cardTitle: "Följ framsteg",
+        cardDescription:
+          "Övervaka dina växter från planta till skörd och fira framgångar",
+        cardIcon: "sprout",
+      },
+    ],
   },
   // FAQ Section
   faq: {

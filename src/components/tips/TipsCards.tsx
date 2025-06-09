@@ -44,7 +44,13 @@ const TipsCards = ({
               : ""
           }`}
         >
-          <TipCard tip={tip} showIcon={!tip.image} />
+          <div className="flex justify-start h-full w-full">
+            <TipCard
+              className="hover:shadow-md dark:shadow-sm dark:shadow-border transition-shadow hover:border-t-green hover:border-t-2"
+              tip={tip}
+              showIcon={!tip.image}
+            />
+          </div>
         </div>
       ))}
     </div>

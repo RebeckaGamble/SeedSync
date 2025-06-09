@@ -10,16 +10,8 @@ import type { Tip } from "@/types/tip";
 const HandleTips = () => {
   const { t } = useTranslation();
 
-  // const tipsData = t("tipsCards.content", { returnObjects: true }) as {
-  //   id: string;
-  //   cardTitle: string;
-  //   cardDescription: string;
-  //   cardIcon: string;
-  // }[];
   const tipsData = t("tipsCards.content", { returnObjects: true }) as Tip[];
 
-
-  // const tips = t("homeCards.content", { returnObjects: true }) as Array<any>;
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const toggleForm = () => {

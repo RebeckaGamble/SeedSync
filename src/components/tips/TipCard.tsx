@@ -23,11 +23,13 @@ export const TipCard = ({
   showIcon = true,
   showFullContent = true,
   showTags = true,
+  className,
 }: {
   tip: Tip;
   showIcon?: boolean;
   showFullContent?: boolean;
   showTags?: boolean;
+  className?: string;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
@@ -36,7 +38,9 @@ export const TipCard = ({
   const hasIcon = showIcon && tip.cardIcon;
 
   return (
-    <Card className="border-border flex flex-col h-full hover:border-t-green hover:shadow-md transition-shadow">
+    <Card
+      className={`${className} border-border flex flex-col w-full h-full shadow-lg `}
+    >
       <CardHeader className="flex flex-row items-center gap-4 pb-2 h-[90px]">
         {hasImage && (
           <img
@@ -68,7 +72,9 @@ export const TipCard = ({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="mt-3 flex items-center text-green hover:green-hover p-0 h-auto"
+                  className={`mt-3 flex items-center ${
+                    !isOpen ? "text-green" : "text-border"
+                  } hover:green-hover p-0 h-auto`}
                   aria-label={t("tips.readMoreBtnAriaLabel")}
                 >
                   {isOpen ? "Show less" : "Read more"}

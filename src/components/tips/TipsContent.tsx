@@ -100,7 +100,6 @@ const TipsContent = () => {
         {/* All tips */}
         <div className="space-y-10 max-w-[90rem] mx-auto px-4 2xl:px-0">
           <div className="flex flex-row justify-between items-center">
-            <h4 className="text-2xl">{t("tips.allTitle")}</h4>
             <button
               aria-label={t("tips.showAllAriaLabel")}
               onClick={handleShowAll}
@@ -108,7 +107,7 @@ const TipsContent = () => {
               {t("tips.showAllBtn")}
             </button>
           </div>
-          <div>
+          <div className="w-full">
             <TipsCards
               tips={combinedTips}
               highlightedId={highlightedId}

@@ -12,6 +12,7 @@ export default {
     themeBtnAriaLabel: "Toggle dark/light theme",
     loginBtnAriaLabel: "Log in",
     logout: "Log out",
+    login: "Log in"
   },
   // Hero
   hero: {
@@ -196,6 +197,40 @@ export default {
     readMoreBtnAriaLabel: "Click to read the full description",
     scrollToTopAriaLabel: "Scroll to top of tips section",
   },
+  // Step by Step section
+  steps: {
+    title: "How it works",
+    content: [
+      {
+        id: 1,
+        cardTitle: "Get Inspired",
+        cardDescription:
+          "Discover gardening ideas and plan your perfect garden layout",
+        cardIcon: "lightbulb",
+      },
+      {
+        id: 2,
+        cardTitle: "Create Account",
+        cardDescription:
+          "Sign up to start tracking your gardening journey",
+        cardIcon: "userplus",
+      },
+      {
+        id: 3,
+        cardTitle: "Start Planning",
+        cardDescription:
+          "Use our task table and calendar to organize your garden activities",
+        cardIcon: "calendar",
+      },
+      {
+        id: 4,
+        cardTitle: "Track Progress",
+        cardDescription:
+          "Monitor your plants from seedling to harvest and celebrate success",
+        cardIcon: "sprout",
+      },
+    ],
+  },
   // Testimonials
   testimonials: {
     title: "What Our Users Say",
@@ -293,4 +328,10 @@ export default {
     goHome: "Go to homepage",
     notFoundText: "Oops! Page not found",
   },
+  // Profile
+  profile: {
+    title: "Profile page",
+    user: "Logged in as: ",
+    text: "Your personal space for tracking",
+  }
 };

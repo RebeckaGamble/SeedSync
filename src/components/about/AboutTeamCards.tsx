@@ -37,9 +37,9 @@ const AboutTeamCards = () => {
           {teamData.map((member) => (
             <Card
               key={member.id}
-              className="border-border border-b-4 hover:border-b-green h-full hover:shadow-md transition-shadow mx-auto max-w-[540px]"
+              className="border-border border-b-4 hover:border-b-green group h-full hover:shadow-md transition-shadow mx-auto max-w-[540px]"
             >
-              <CardHeader className="flex flex-col items-center gap-4 pb-0 group">
+              <CardHeader className="flex flex-col items-center gap-4 pb-0 ">
                 <div className="relative h-44 w-44 mb-2 rounded-full overflow-hidden bg-primary shadow-inner">
                   <img
                     src={imageMap[member.image]}

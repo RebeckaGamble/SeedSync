@@ -25,11 +25,11 @@ const FaqSection = () => {
       <Accordion
         type="single"
         collapsible
-        className="w-[90%] max-w-[800px] mx-auto p-4"
+        className="w-[90%] max-w-[800px] mx-auto "
       >
         {content.map((faq) => (
           <AccordionItem key={faq.id} value={faq.id} className="border-border">
-            <AccordionTrigger className="text-lg font-medium text-start py-4 justify-between text-primary-foreground hover:text-green-hover transition-colors">
+            <AccordionTrigger className="text-lg font-medium text-start py-4 justify-between text-primary-foreground ">
               {faq.question}
             </AccordionTrigger>
             <AccordionContent className="text-secondary-foreground pb-6 text-base">

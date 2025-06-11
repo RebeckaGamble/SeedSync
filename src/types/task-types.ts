@@ -1,5 +1,5 @@
 export type TaskCategory = "sowing" | "watering" | "harvesting" | "other";
-export type TaskStatus = "not-started" | "in-progress" | "completed";
+export type TaskStatus = "notStarted" | "inProgress" | "completed";
 
 export interface ITask {
   id: string;

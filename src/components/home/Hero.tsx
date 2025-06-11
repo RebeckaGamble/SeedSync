@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useDialog } from "@/context/DialogContext";
 import { useUserAuth } from "@/context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
-import yellow from "@/assets/blue.jpg";
+import { blue } from "@/assets";
+
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ const Hero = () => {
     <section className="bg-primary relative text-white h-[calc(100vh-80px)] max-h-[850px] w-full">
       <div className="inset-0 h-full w-full">
         <img
-          src={yellow}
+          src={blue}
           alt="Flowers"
           className=" h-full w-full opacity-95 object-cover "
         />

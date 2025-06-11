@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useUserAuth } from "@/context/UserAuthContext";
 import { useTranslation } from "react-i18next";
-import CalendarShow from "@/components/user/CalendarShow";
+import CalendarShow from "@/components/user/calendar/CalendarShow";
 import ProgressShow from "@/components/user/progress/ProgressShow";
 import TaskBoardShow from "@/components/user/taskboard/TaskBoardShow";
 
@@ -12,7 +12,7 @@ const Profile = () => {
   const { t } = useTranslation();
 
   if (user === undefined) {
-    return <div className="pt-[60px]">Loading...</div>;
+    return <div className="pt-[60px]">{t("profile.loading")}</div>;
   }
 
   if (!user) {
@@ -43,11 +43,11 @@ const Profile = () => {
         <Tabs defaultValue="tasktable" className="text-secondary-foreground">
           <div className="w-full max-w-[90rem] mx-auto px-4 2xl:px-0">
             <TabsList className="w-full grid grid-cols-3 bg-secondary mb-6 py-2 sm:py-4 h-auto gap-10 rounded-full px-4 sm:px-6 lg:px-10 shadow-lg">
-              <TabsTrigger value="schedule">
-                Schedule
+              <TabsTrigger value="schedule" className="text-[16px] tracking-wider">
+                {t("calendar.title")}
               </TabsTrigger>
-              <TabsTrigger value="tasktable">Tasktable</TabsTrigger>
-              <TabsTrigger value="progress">Progress</TabsTrigger>
+              <TabsTrigger value="tasktable" className="text-[16px] tracking-wider">{t("taskboard.title")}</TabsTrigger>
+              <TabsTrigger value="progress" className="text-[16px] tracking-wider">{t("progress.title")}</TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="schedule" className="w-full">

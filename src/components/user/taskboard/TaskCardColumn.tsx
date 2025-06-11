@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import type { ITask } from "@/types/task-types";
 import TaskCard from "./TaskCard";
+import { useTranslation } from "react-i18next";
 
 interface ITaskColumn {
   viewMode: "1" | "3";
@@ -22,6 +23,7 @@ const TaskCardColumn = ({
   onDeleteTask,
   onToggleStatus,
 }: ITaskColumn) => {
+  const { t } = useTranslation();
   return (
     <div className="w-full border border-border h-full rounded-md bg-primary px-4 pt-2 pb-4 min-h-[190px]">
       <div className="flex items-center justify-between mb-4">
@@ -44,19 +46,24 @@ const TaskCardColumn = ({
         }`}
       >
         {tasks.length === 0 ? (
-          <div className="py-6 text-center text-secondary-foreground italic text-sm">
-            No tasks for this month
+          <div className="py-6 text-start text-secondary-foreground italic text-sm">
+            {t("taskboard.noTasks")}
           </div>
         ) : (
-          tasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-              onEdit={() => onEditTask(task)}
-              onDelete={() => onDeleteTask(task.id)}
-              onToggleStatus={() => onToggleStatus(task.id)}
-            />
-          ))
+          [...tasks]
+            .sort(
+              (a, b) =>
+                new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+            )
+            .map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                onEdit={() => onEditTask(task)}
+                onDelete={() => onDeleteTask(task.id)}
+                onToggleStatus={() => onToggleStatus(task.id)}
+              />
+            ))
         )}
       </div>
     </div>

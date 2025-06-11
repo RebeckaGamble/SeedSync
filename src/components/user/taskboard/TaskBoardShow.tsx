@@ -2,7 +2,7 @@ import { useTasks } from "@/hooks/use-tasks";
 import TaskBoardContent from "./TaskBoardContent";
 import { useState } from "react";
 import type { ITask } from "@/types/task-types";
-import AddTaskDialog from "../AddTaskDialog";
+import AddTaskDialog from "../taskForm/AddTaskDialog";
 
 const TaskBoardShow = () => {
   const {
@@ -73,6 +73,7 @@ const TaskBoardShow = () => {
         editingTask={editingTask}
         selectedMonth={selectedMonth || months[new Date().getMonth()]}
         months={months}
+        onCancel={() => setIsAddTaskOpen(false)}
       />
     </div>
   );

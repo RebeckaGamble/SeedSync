@@ -14,7 +14,7 @@ const getStatusIcon = (status: ITask["status"]) => {
   switch (status) {
     case "completed":
       return <CircleCheck className="text-green" />;
-    case "in-progress":
+    case "inProgress":
       return <CircleCheck className="text-yellow-600" />;
     default:
       return <CircleCheck className="text-border" />;
@@ -29,14 +29,14 @@ const TaskCard = ({
 }: ITaskCardProps) => {
   return (
     <div
-      className={`bg-secondary rounded-md w-full  shadow-sm p-4 cursor-none
+      className={`bg-secondary rounded-md w-full  shadow-sm p-4 
         ${
           task.status === "completed"
             ? "border-l-4 border-green"
             : "border-l-4 border-border"
         }
             ${
-              task.status === "in-progress"
+              task.status === "inProgress"
                 ? "border-l-4 border-yellow-600 "
                 : ""
             }

@@ -1,19 +1,20 @@
-import { Button } from "../ui/button";
-import { cn } from "../lib/utils";
-import { Calendar } from "../ui/calendar";
-import { Input } from "../ui/input";
+import { Button } from "../../ui/button";
+import { cn } from "../../lib/utils";
+import { Calendar } from "../../ui/calendar";
+import { Input } from "../../ui/input";
 import { format } from "date-fns";
-import { Label } from "../ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Label } from "../../ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "../../ui/select";
 import { CalendarIcon } from "lucide-react";
 import type { TaskCategory, TaskStatus } from "@/types/task-types";
+import { useTranslation } from "react-i18next";
 
 interface ITaskFormProps {
   title: string;
@@ -26,10 +27,13 @@ interface ITaskFormProps {
   setCategory: (category: TaskCategory) => void;
   status: TaskStatus;
   setStatus: (status: TaskStatus) => void;
-  month: string;
-  setMonth: (month: string) => void;
-  months: string[];
 }
+
+//     taskStatusForm: {
+//       notStarted: "Inte påbörjade",
+//       inProgress: "Påbörjade",
+//       completed: "Färdiga",
+//     },
 
 const CreateTaskForm = ({
   title,
@@ -42,32 +46,30 @@ const CreateTaskForm = ({
   setCategory,
   status,
   setStatus,
-  month,
-  setMonth,
-  months,
 }: ITaskFormProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="grid gap-4 py-4">
       <div className="grid gap-1">
-        <Label htmlFor="title">Task title</Label>
+        <Label htmlFor="title">{t("taskboard.taskTitleForm")}</Label>
         <Input
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter task title"
-          className=""
+          placeholder={t("taskboard.taskTitlePlaceholder")}
         />
       </div>
 
       <div className="grid gap-1">
         <Label htmlFor="description" className="text-sm font-medium">
-          Description / Notes
+          {t("taskboard.taskDescriptionForm")}{" "}
         </Label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Add any details or notes"
+          placeholder={t("taskboard.taskDescriptionPlaceholder")}
           className={cn(
             "file:text-slate-400 placeholder:text-slate-500 selection:bg-white selection:text-primary-foreground dark:bg-primary/80 border-border flex h-14 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
             "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[1px]",
@@ -76,28 +78,10 @@ const CreateTaskForm = ({
         />
       </div>
 
-      <div className="grid gap-1">
-        <Label htmlFor="month" className="text-sm font-medium">
-          Month
-        </Label>
-        <Select value={month} onValueChange={setMonth}>
-          <SelectTrigger className=" border-border ">
-            <SelectValue placeholder="Select month" />
-          </SelectTrigger>
-          <SelectContent className="bg-primary ">
-            {months.map((m) => (
-              <SelectItem key={m} value={m}>
-                {m}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
       <div className="grid grid-cols-2 gap-4">
         <div className="grid gap-1">
           <Label htmlFor="date" className="text-sm font-medium">
-            Due Date
+            {t("taskboard.taskDueDate")}{" "}
           </Label>
           <Popover>
             <PopoverTrigger asChild>
@@ -125,7 +109,7 @@ const CreateTaskForm = ({
 
         <div className="grid gap-1">
           <Label htmlFor="category" className="text-sm font-medium ">
-            Category
+            {t("taskboard.taskCategoryForm")}{" "}
           </Label>
           <Select
             value={category}
@@ -135,10 +119,14 @@ const CreateTaskForm = ({
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
             <SelectContent className="bg-primary ">
-              <SelectItem value="sowing">Sowing</SelectItem>
-              <SelectItem value="watering">Watering</SelectItem>
-              <SelectItem value="harvesting">Harvesting</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="sowing"> {t("taskboard.sowing")} </SelectItem>
+              <SelectItem value="watering">
+                {t("taskboard.watering")}
+              </SelectItem>
+              <SelectItem value="harvesting">
+                {t("taskboard.harvesting")}
+              </SelectItem>
+              <SelectItem value="other"> {t("taskboard.other")} </SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -146,7 +134,7 @@ const CreateTaskForm = ({
 
       <div className="grid gap-1">
         <Label htmlFor="status" className="text-sm font-medium">
-          Status
+          {t("taskboard.taskStatusForm")}
         </Label>
         <Select
           value={status}
@@ -156,9 +144,18 @@ const CreateTaskForm = ({
             <SelectValue placeholder="Select status" />
           </SelectTrigger>
           <SelectContent className="bg-primary">
-            <SelectItem value="not-started">Not Started</SelectItem>
-            <SelectItem value="in-progress">In Progress</SelectItem>
-            <SelectItem value="completed">Completed</SelectItem>
+            <SelectItem value="notStarted">
+              {" "}
+              {t("taskboard.notStarted")}
+            </SelectItem>
+            <SelectItem value="inProgress">
+              {" "}
+              {t("taskboard.inProgress")}
+            </SelectItem>
+            <SelectItem value="completed">
+              {" "}
+              {t("taskboard.completed")}
+            </SelectItem>
           </SelectContent>
         </Select>
       </div>

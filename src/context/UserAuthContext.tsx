@@ -19,6 +19,7 @@ type CustomUser = User & { isAdmin?: boolean };
 
 type AuthContextData = {
   user: CustomUser | null;
+  loading: boolean;
   logIn: typeof logIn;
   signUp: typeof signUp;
   logOut: typeof logOut;
@@ -38,13 +39,15 @@ const logOut = async () => {
   window.location.href = "/";
 };
 
-const googleSignIn = () => {
-  const googleAuthProvider = new GoogleAuthProvider();
-  return signInWithPopup(auth, googleAuthProvider);
-};
+// const googleSignIn = () => {
+//   const googleAuthProvider = new GoogleAuthProvider();
+//   return signInWithPopup(auth, googleAuthProvider);
+// };
+const googleSignIn = () => signInWithPopup(auth, new GoogleAuthProvider())
 
 export const userAuthContext = createContext<AuthContextData>({
   user: null,
+  loading: true,
   logIn,
   signUp,
   logOut,
@@ -55,19 +58,19 @@ export const UserAuthProvider: React.FunctionComponent<
   IUserAuthProviderProps
 > = ({ children }) => {
   const [user, setUser] = React.useState<CustomUser | null>(null);
+    const [loading, setLoading] = React.useState(true);
+
 
   React.useEffect(() => {
     const unsubrcribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const tokenResult = await user.getIdTokenResult();
         const isAdmin = !!tokenResult.claims.admin;
-        // console.log("Admin status: ", isAdmin)
-        // console.log("The logged in user state is: ", user);
-
         setUser({ ...user, isAdmin });
       } else {
         setUser(null);
       }
+      setLoading(false);
 
       return () => {
         unsubrcribe();
@@ -77,6 +80,7 @@ export const UserAuthProvider: React.FunctionComponent<
 
   const value: AuthContextData = {
     user,
+    loading,
     logIn,
     signUp,
     logOut,

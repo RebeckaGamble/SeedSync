@@ -12,8 +12,7 @@ export default {
     themeBtnAriaLabel: "Växla mellan mörkt/ljust tema",
     loginBtnAriaLabel: "Logga in",
     logout: "Logga ut",
-    login: "Logga in"
-
+    login: "Logga in",
   },
   // Hero
   hero: {
@@ -199,7 +198,7 @@ export default {
     readMoreBtnAriaLabel: "Klicka för att läsa hela beskrivningen",
     scrollToTopAriaLabel: "Gå till toppen av tipssektionen",
   },
-   // Step by Step section
+  // Step by Step section
   steps: {
     title: "Hur det fungerar",
     content: [
@@ -207,14 +206,13 @@ export default {
         id: 1,
         cardTitle: "Bli inspirerad",
         cardDescription:
-          "Upptäck trädgårdsidéer och planera din perfekta trädgårdsplanering",
+          "Upptäck odlingsidéer och planera för din perfekta plantering",
         cardIcon: "lightbulb",
       },
       {
         id: 2,
         cardTitle: "Skapa ett konto",
-        cardDescription:
-          "Registrera dig för att börja följa din trädgårdsresa",
+        cardDescription: "Registrera dig för att börja följa din trädgårdsresa",
         cardIcon: "userplus",
       },
       {
@@ -328,5 +326,72 @@ export default {
     title: "Ett fel uppstod",
     goHome: "Gå till startsidan",
     notFoundText: "Hoppsan! Sidan hittades inte",
+  },
+  // Profile
+  profile: {
+    title: "Din profil",
+    user: "Inloggad som: ",
+    text: "Ditt personliga utrymme för att följa tillväxten i din odling",
+    loading: "Laddar...",
+  },
+  // Taskboard
+  taskboard: {
+    title: "Aktivitetstavla",
+    noTasks: "Inga uppgifter denna månad.",
+    editTaskTitle: "Uppdatera uppgift",
+    addNewTaskTitle: "Lägg till ny uppgift",
+    taskTitleForm: "Titel",
+    taskTitlePlaceholder: "Ange titel",
+    taskDescriptionForm: "Beskrivning / Anteckningar",
+    taskDescriptionPlaceholder: "Lägg till eventuella anteckningar",
+    taskDueDate: "Förfallodatum",
+    taskCategoryForm: "Kategori",
+    sowing: "Så",
+    watering: "Vattna",
+    harvesting: "Skörda",
+    other: "Annat",
+    taskStatusForm: "Status",
+    notStarted: "Inte påbörjad",
+    inProgress: "Påbörjad",
+    completed: "Färdig",
+    updateTaskBtn: "Uppdatera",
+    addTaskBtn: "Lägg till",
+    cancelBtn: "Avbryt",
+  },
+  // Progress section
+  progress: {
+    title: "Framsteg",
+    text: "",
+    subTitle: "Översikt",
+    subText: "Övergripande framsteg",
+    notStarted: "Inte Påbörjad",
+    inProgress: "Påbörjad",
+    completed: "Färdig",
+    description: "Beskrivning",
+    noDescription: "Ingen beskrivning...",
+    addBtnText: "Lägg till anteckning",
+    addBtn: "Lägg till",
+    cancelBtn: "Avbryt",
+    note: "Anteckning",
+    issue: "Problem",
+    success: "Framgång",
+    progressNotes: "Anteckningar",
+    editNoteSave: "Spara",
+    editNoteCancel: "Avbryt",
+    filterCards: {
+      all: "Alla",
+      notStarted: "Inte påbörjade",
+      inProgress: "Påbörjade",
+      completed: "Färdiga",
+    },
+    type: {
+      success: "Framgång",
+      issue: "Problem",
+      observation: "Observation",
+    },
+  },
+  // Calendar
+  calendar: {
+    title: "Kalender",
   },
 };

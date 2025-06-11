@@ -5,7 +5,6 @@ const TASKS_STORAGE_KEY = "tasks";
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState<ITask[]>([]);
-
   const [viewMode, setViewMode] = useState<"1" | "3">("3");
   const [currentMonthIndex, setCurrentMonthIndex] = useState(
     new Date().getMonth()
@@ -55,23 +54,15 @@ export const useTasks = () => {
     saveToStorage(updated);
   };
 
-  const handleMoveTask = (taskId: string, targetMonth: string) => {
-    const updated = tasks.map((task) =>
-      task.id === taskId ? { ...task, month: targetMonth } : task
-    );
-    setTasks(updated);
-    saveToStorage(updated);
-  };
-
   const handleToggleStatus = (taskId: string) => {
     const updated = tasks.map((task) => {
       if (task.id === taskId) {
         const newStatus: TaskStatus =
-          task.status === "not-started"
-            ? "in-progress"
-            : task.status === "in-progress"
+          task.status === "notStarted"
+            ? "inProgress"
+            : task.status === "inProgress"
             ? "completed"
-            : "not-started";
+            : "notStarted";
         return { ...task, status: newStatus };
       }
       return task;
@@ -111,7 +102,6 @@ export const useTasks = () => {
     handleAddTask,
     handleUpdateTask,
     handleDeleteTask,
-    handleMoveTask,
     handleToggleStatus,
     handlePreviousMonth,
     handleNextMonth,

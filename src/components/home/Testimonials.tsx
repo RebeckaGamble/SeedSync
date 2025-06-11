@@ -43,7 +43,7 @@ const Testimonials = () => {
         className="absolute inset-0 w-full object-cover h-full"
       />
       <div className="relative backdrop-blur-[1px] z-10 w-full h-full flex flex-col items-center pb-4 pt-16 sm:pt-20 justify-between text-primary-foreground">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
           {t("testimonials.title")}
         </h2>
         <div className="relative h-full w-full max-w-[90rem] mx-auto">

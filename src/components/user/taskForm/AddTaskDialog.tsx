@@ -7,8 +7,9 @@ import {
   DialogOverlay,
 } from "@/components/ui/dialog";
 import CreateTaskForm from "./CreateTaskForm";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import type { ITask, TaskCategory, TaskStatus } from "@/types/task-types";
+import { useTranslation } from "react-i18next";
 
 interface AddTaskDialogProps {
   open: boolean;
@@ -18,12 +19,8 @@ interface AddTaskDialogProps {
   editingTask: ITask | null;
   selectedMonth: string;
   months: string[];
-  onCancel?: () => void;
-  //   onSubmit: () => void;
-  isSubmitDisabled?: boolean;
-  isEditing?: boolean;
+  onCancel: () => void;
 }
-
 
 const AddTaskDialog = ({
   open,
@@ -32,18 +29,25 @@ const AddTaskDialog = ({
   onUpdateTask,
   editingTask,
   selectedMonth,
-  months,
   onCancel,
-  //   onSubmit,
-  isSubmitDisabled,
-  isEditing,
 }: AddTaskDialogProps) => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState<Date>(new Date());
   const [category, setCategory] = useState<TaskCategory>("sowing");
-  const [status, setStatus] = useState<TaskStatus>("not-started");
+  const [status, setStatus] = useState<TaskStatus>("notStarted");
   const [month, setMonth] = useState(selectedMonth);
+
+  const resetForm = () => {
+    setTitle("");
+    setDescription("");
+    setDueDate(new Date());
+    setCategory("sowing");
+    setStatus("notStarted");
+    onOpenChange(false);
+    if (onCancel) onCancel();
+  };
 
   useEffect(() => {
     if (editingTask) {
@@ -58,7 +62,7 @@ const AddTaskDialog = ({
       setDescription("");
       setDueDate(new Date());
       setCategory("sowing");
-      setStatus("not-started");
+      setStatus("notStarted");
       setMonth(selectedMonth);
     }
   }, [editingTask, selectedMonth, open]);
@@ -72,38 +76,28 @@ const AddTaskDialog = ({
       status,
       month,
     };
-    
-    const storedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-
 
     if (editingTask) {
-      const updateTasks = storedTasks.map((t: ITask) => t.id === editingTask.id ? { ...task, id: editingTask.id} : t)
-      localStorage.setItem("takss", JSON.stringify(updateTasks))
       onUpdateTask({ ...task, id: editingTask.id });
     } else {
-      const newTask = { ...task, id: crypto.randomUUID() }
-      const updatedTasks = [...storedTasks, newTask]
-      localStorage.setItem("tasks", JSON.stringify(updatedTasks))
-      onAddTask(newTask);
+      onAddTask(task);
     }
 
     resetForm();
-  };
-
-  const resetForm = () => {
-    setTitle("");
-    setDescription("");
-    setDueDate(new Date());
-    setCategory("sowing");
-    setStatus("not-started");
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogOverlay className="backdrop-blur-xs" />
 
-      <DialogContent className="fixed border border-border top-1/2 sm:top-1/3 left-1/2 w-[98%] sm:w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 text-primary-foreground bg-primary py-6 px-4 rounded-lg shadow-lg">
-        <DialogDescription className="text-xl">{editingTask ? "Edit Task" : "Add New Task"}</DialogDescription>
+      <DialogContent className="fixed border border-border top-1/2 left-1/2 w-[98%] sm:w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 text-primary-foreground bg-primary py-6 px-4 rounded-lg shadow-lg">
+        <DialogDescription className="text-xl">
+          <span>
+            {editingTask
+              ? t("taskboard.editTaskTitle")
+              : t("taskboard.addNewTaskTitle")}
+          </span>
+        </DialogDescription>
         <DialogTitle className="sr-only">Add task</DialogTitle>
 
         <CreateTaskForm
@@ -117,28 +111,28 @@ const AddTaskDialog = ({
           setCategory={setCategory}
           status={status}
           setStatus={setStatus}
-          month={month}
-          setMonth={setMonth}
-          months={months}
         />
         {/* Cancel, Edit/Save btns */}
         <div className="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
           <Button
-          variant="edit"
-          size="default"
+            variant="edit"
+            size="default"
             onClick={onCancel}
             className="text-primary-foreground"
           >
-            Cancel
+            {t("taskboard.cancelBtn")}
           </Button>
           <Button
             variant="default"
             size="default"
             onClick={handleSubmit}
             className="bg-green hover:bg-green-hover"
-            disabled={isSubmitDisabled}
           >
-            {isEditing ? "Update Task" : "Add Task"}
+            <span>
+              {editingTask
+                ? t("taskboard.updateTaskBtn")
+                : t("taskboard.addTaskBtn")}
+            </span>
           </Button>
         </div>
       </DialogContent>

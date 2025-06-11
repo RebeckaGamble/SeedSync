@@ -12,7 +12,7 @@ export default {
     themeBtnAriaLabel: "Toggle dark/light theme",
     loginBtnAriaLabel: "Log in",
     logout: "Log out",
-    login: "Log in"
+    login: "Log in",
   },
   // Hero
   hero: {
@@ -211,8 +211,7 @@ export default {
       {
         id: 2,
         cardTitle: "Create Account",
-        cardDescription:
-          "Sign up to start tracking your gardening journey",
+        cardDescription: "Sign up to start tracking your gardening journey",
         cardIcon: "userplus",
       },
       {
@@ -332,6 +331,67 @@ export default {
   profile: {
     title: "Profile page",
     user: "Logged in as: ",
-    text: "Your personal space for tracking",
+    text: "Your personal space for tracking the growth in your cultivation",
+    loading: "Loading...",
+  },
+  // Taskboard
+  taskboard: {
+    title: "Taskboard",
+    noTasks: "No tasks for this month.",
+    editTaskTitle: "Edit Task",
+    addNewTaskTitle: "Add New Task",
+    taskTitleForm: "Task title",
+    taskTitlePlaceholder: "Enter taks title",
+    taskDescriptionForm: "Description / Notes",
+    taskDescriptionPlaceholder: "Add any details or notes",
+    taskDueDate: "Due Date",
+    taskCategoryForm: "Category",
+    sowing: "Sowing",
+    watering: "Watering",
+    harvesting: "Harvesting",
+    other: "Other",
+    taskStatusForm: "Status",
+    notStarted: "Not started",
+    inProgress: "In-progress",
+    completed: "Completed",
+    updateTaskBtn: "Update Task",
+    addTaskBtn: "Add Task",
+    cancelBtn: "Cancel",
+  },
+  // Progress section
+  progress: {
+    title: "Progress",
+    text: "",
+    subTitle: "Progress Overview",
+    subText: "Overall Progress",
+    notStarted: "Not Started",
+    inProgress: "In Progress",
+    completed: "Completed",
+    description: "Description",
+    noDescription: "No description...",
+    addBtnText: "Add Progress Note",
+    addBtn: "Add Note",
+    cancelBtn: "Cancel",
+    note: "Note",
+    issue: "Issue",
+    success: "Success",
+    progressNotes: "Progress Notes",
+    editNoteSave: "Save",
+    editNoteCancel: "Cancel",
+    filterCards: {
+      all: "all",
+      notStarted: "Not started",
+      inProgress: "In-progress",
+      completed: "Completed",
+    },
+    type: {
+      success: "Success",
+      issue: "Issue",
+      observation: "Observation",
+    },
+  },
+  // Calendar
+  calendar: {
+    title: "Calendar"
   }
 };

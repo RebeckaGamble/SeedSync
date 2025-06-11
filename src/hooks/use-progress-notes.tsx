@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export interface ProgressNote {
+export interface IProgressNote {
   id: string;
   taskId: string;
   note: string;
@@ -8,54 +8,95 @@ export interface ProgressNote {
   type: "success" | "issue" | "observation";
 }
 
-// Shared state for progress notes
-let sharedProgressNotes: ProgressNote[] = [];
-let sharedSetProgressNotes: ((notes: ProgressNote[]) => void) | null = null;
+export const getStatusColor = (status: string) => {
+  switch (status) {
+    case "completed":
+      return "bg-green-600";
+    case "inProgress":
+      return "bg-yellow-600";
+    default:
+      return "bg-slate-600";
+  }
+};
+
+export const getProgressPercentage = (status: string) => {
+  switch (status) {
+    case "completed":
+      return 100;
+    case "in-progress":
+      return 50;
+    default:
+      return 0;
+  }
+};
+
+const STORAGE_KEY = "progressNotes";
 
 export function useProgressNotes() {
-  const [progressNotes, setProgressNotes] = useState<ProgressNote[]>(sharedProgressNotes);
+  const [progressNotes, setProgressNotes] = useState<IProgressNote[]>([]);
 
-  // Initialize shared state
-  if (!sharedSetProgressNotes) {
-    sharedSetProgressNotes = (notes: ProgressNote[]) => {
-      sharedProgressNotes = notes;
-      setProgressNotes(notes);
-    };
-  }
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        const withDates = parsed.map((note: any) => ({
+          ...note,
+          date: new Date(note.date),
+        }));
+        setProgressNotes(withDates);
+      } catch (err) {
+        console.error("Failed to load progress notes:", err);
+      }
+    }
+  }, []);
 
-  const addProgressNote = (taskId: string, note: string, type: "success" | "issue" | "observation") => {
+  // Save note to storage
+  const saveToStorage = (notes: IProgressNote[]) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+  };
+
+  // Create Note
+  const addProgressNote = (
+    taskId: string,
+    note: string,
+    type: "success" | "issue" | "observation"
+  ) => {
     if (!note.trim()) return;
 
-    const newNote: ProgressNote = {
+    const newNote: IProgressNote = {
       id: Math.random().toString(36).substring(7),
       taskId,
       note,
       date: new Date(),
-      type
+      type,
     };
 
-    const updatedNotes = [...sharedProgressNotes, newNote];
-    sharedProgressNotes = updatedNotes;
+    const updatedNotes = [...progressNotes, newNote];
     setProgressNotes(updatedNotes);
+    saveToStorage(updatedNotes);
     return newNote;
   };
 
+  // Update Note
   const updateProgressNote = (noteId: string, updatedNote: string) => {
-    const updatedNotes = sharedProgressNotes.map(note => 
+    const updatedNotes = progressNotes.map((note) =>
       note.id === noteId ? { ...note, note: updatedNote } : note
     );
-    sharedProgressNotes = updatedNotes;
     setProgressNotes(updatedNotes);
+    saveToStorage(updatedNotes);
   };
 
+  // Delete Note
   const deleteProgressNote = (noteId: string) => {
-    const updatedNotes = sharedProgressNotes.filter(note => note.id !== noteId);
-    sharedProgressNotes = updatedNotes;
+    const updatedNotes = progressNotes.filter((note) => note.id !== noteId);
     setProgressNotes(updatedNotes);
+    saveToStorage(updatedNotes);
   };
 
+  // Get Notes
   const getTaskNotes = (taskId: string) => {
-    return sharedProgressNotes.filter(note => note.taskId === taskId);
+    return progressNotes.filter((note) => note.taskId === taskId);
   };
 
   return {
@@ -63,6 +104,6 @@ export function useProgressNotes() {
     addProgressNote,
     updateProgressNote,
     deleteProgressNote,
-    getTaskNotes
+    getTaskNotes,
   };
 }

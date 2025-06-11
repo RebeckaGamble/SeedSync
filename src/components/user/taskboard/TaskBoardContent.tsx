@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
 import TaskCardColumn from "./TaskCardColumn";
 import type { ITask } from "@/types/task-types";
+import { useTranslation } from "react-i18next";
 
 interface ITaskBoard {
   viewMode: "1" | "3";
@@ -35,6 +36,7 @@ const TaskBoardContent = ({
   onDeleteTask,
   onToggleStatus,
 }: ITaskBoard) => {
+  const { t } = useTranslation();
   const getDisplayText = () => {
     if (viewMode === "1") {
       return months[currentMonthIndex];
@@ -50,7 +52,7 @@ const TaskBoardContent = ({
       {/* Taskboard header */}
       <div className="flex flex-col items-start sm:items-center justify-between gap-4 mb-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mx-auto mb-12 text-primary-foreground">
-          Taskboard
+          {t("taskboard.title")}{" "}
         </h2>
         {/* Navigate months / Show 1 or 3 months*/}
         <div className="flex flex-row justify-between items-center w-full text-primary-foreground">
@@ -63,9 +65,7 @@ const TaskBoardContent = ({
             >
               <ChevronLeft size={16} />
             </Button>
-            <span className="min-w-20 text-center">
-              {getDisplayText()}
-            </span>
+            <span className="min-w-20 text-center">{getDisplayText()}</span>
             <Button
               variant="outline"
               size="sm"
@@ -98,7 +98,9 @@ const TaskBoardContent = ({
       {/** Taskboard body/cards */}
       <div
         className={` ${
-          viewMode === "3" ? "grid grid-cols-1 sm:grid-col-2 md:grid-cols-3" : ""
+          viewMode === "3"
+            ? "grid grid-cols-1 sm:grid-col-2 md:grid-cols-3"
+            : ""
         } gap-2`}
       >
         {displayedMonths.map((month) => (

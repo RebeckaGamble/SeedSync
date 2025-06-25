@@ -29,12 +29,6 @@ interface ITaskFormProps {
   setStatus: (status: TaskStatus) => void;
 }
 
-//     taskStatusForm: {
-//       notStarted: "Inte påbörjade",
-//       inProgress: "Påbörjade",
-//       completed: "Färdiga",
-//     },
-
 const CreateTaskForm = ({
   title,
   setTitle,

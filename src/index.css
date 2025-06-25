@@ -30,7 +30,7 @@ a.active {
   --color-primary-foreground: oklch(0.14 0.02 262); /* slate-900 */
 
   --color-secondary: oklch(0.97 0 0); /* neutral 500 */
-  /*--color-secondary: oklch(0.927 0.031 129.65); /* green-50 */
+  --color-green-50: oklch(0.927 0.031 129.65); /* green-50 */
   --color-neutral: oklch(0.98 0.016 73.684); /* neutral-200 */
   --color-secondary-foreground: oklch(0.19 0.02 263); /* slate-800 */
 

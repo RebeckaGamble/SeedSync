@@ -17,9 +17,6 @@ const CalendarShow = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [selectedTask, setSelectedTask] = useState<ITask | null>(null);
 
-  //   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
-  // const [editingTask, setEditingTask] = useState<ITask | null>(null);
-
   const handlePreviousMonth = () => {
     setCurrentDate((prev) => subMonths(prev, 1));
   };
@@ -49,7 +46,6 @@ const CalendarShow = () => {
       setSelectedTask(tasksForDay[0]);
       setIsViewTaskOpen(true);
     } else {
-      // Multiple tasks — could open a modal to pick one (future enhancement)
       setSelectedTask(null);
       setIsViewTaskOpen(true);
     }

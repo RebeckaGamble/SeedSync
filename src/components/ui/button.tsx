@@ -13,7 +13,7 @@ const buttonVariants = cva(
         icon: "bg-inherit focus-visible:outline-none",
         outline:
           "border border-border bg-background hover:bg-accent hover:text-accent-foreground",
-        edit: "bg-slate-100 hover:bg-border text-primary hover:text-white",
+        edit: "bg-slate-200 hover:bg-border text-primary dark:text-slate-900 dark:hover:text-white hover:text-slate-800",
         danger: "bg-red-300 hover:bg-red-600 text-white hover:text-white",
       },
       size: {

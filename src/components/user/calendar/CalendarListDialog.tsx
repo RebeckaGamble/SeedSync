@@ -26,8 +26,8 @@ const CalendarListDialog = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogOverlay className="backdrop-blur-xs" />
-      <DialogContent className="fixed border border-border top-1/2  left-1/2 w-[98%] sm:w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 text-primary-foreground bg-primary py-6 px-4 rounded-lg shadow-lg">
-        <DialogTitle className="text-xl text-center font-bold">
+      <DialogContent className="fixed border border-border top-1/2 left-1/2 w-[98%] sm:w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 text-primary-foreground bg-primary py-6 px-4 rounded-lg shadow-lg">
+        <DialogTitle className="text-xl text-center font-bold pb-6">
           Tasks for {date?.toDateString()}{" "}
         </DialogTitle>
         <DialogDescription className="text-sm text-center mt-4 mb-6 sr-only">

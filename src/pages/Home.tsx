@@ -10,14 +10,13 @@ const Home = () => {
     <div className="flex flex-col">
       <main className="flex-grow">
         <Hero />
-          <div className="bg-primary  ">
-            <HomeTipsCards />
-          </div>
-          <HomeCarousel />
-          <StepByStep />
-          <FaqSection />
-          <Testimonials />
-        
+        <div className="bg-primary  ">
+          <HomeTipsCards />
+        </div>
+        <HomeCarousel />
+        <StepByStep />
+        <FaqSection />
+        <Testimonials />
       </main>
     </div>
   );

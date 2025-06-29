@@ -51,11 +51,6 @@ const CalendarShow = () => {
     }
   };
 
-  const handleTaskClick = (task: ITask) => {
-    setSelectedTask(task);
-    setIsViewTaskOpen(true);
-  };
-
   const onAddTask = (task: Omit<ITask, "id">) => {
     handleAddTask(task);
     setIsAddTaskOpen(false);
@@ -80,7 +75,6 @@ const CalendarShow = () => {
           selectedDate={selectedDate}
           tasks={tasks}
           onDayClick={handleDayClick}
-          onTaskClick={handleTaskClick}
           onPreviousMonth={handlePreviousMonth}
           onNextMonth={handleNextMonth}
         />

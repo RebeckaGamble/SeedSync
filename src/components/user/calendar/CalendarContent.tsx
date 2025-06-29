@@ -1,4 +1,3 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Calendar } from "../../ui/calendar";
 import type { ITask } from "@/types/task-types";
 import "react-day-picker/style.css";
@@ -9,7 +8,6 @@ interface CalendarViewProps {
   selectedDate: Date | undefined;
   onDayClick: (date: Date | undefined) => void;
   tasks: ITask[];
-  onTaskClick: (task: ITask) => void;
   onPreviousMonth: () => void;
   onNextMonth: () => void;
 }
@@ -19,7 +17,6 @@ const CalendarContent = ({
   selectedDate,
   onDayClick,
   tasks,
-  onTaskClick,
   onPreviousMonth,
   onNextMonth,
 }: CalendarViewProps) => {

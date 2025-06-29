@@ -3,8 +3,15 @@ import { Leaf } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 
-const Footer = () => {
+type FooterProps = {
+  isScrolled: boolean;
+  isMainNav: boolean;
+};
+
+const Footer = ({ isScrolled, isMainNav} : FooterProps) => {
   const { t } = useTranslation();
+    
+    
 
   return (
     <footer className="bg-primary shadow-sm border-t border-border/80">
@@ -27,12 +34,17 @@ const Footer = () => {
             <div className="flex flex-wrap w-full mx-auto gap-x-4 lg:gap-6 items-start sm:pt-6 sm:pl-4 sm:justify-center ">
               <ul className="flex gap-x-3 text-primary-foreground">
                 <li>
-                  <NavLink to="/tips" className={navLinkClass}>
+                  <NavLink to="/tips" 
+className={navLinkClass({ isScrolled, isMainNav })}                  >
                     {t("footer.tips")}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about" className={navLinkClass}>
+                  <NavLink to="/about" 
+                  // className={navLinkClass}
+                  className={navLinkClass({ isScrolled, isMainNav })}                  >
+
+                  
                     {t("footer.about")}
                   </NavLink>{" "}
                 </li>

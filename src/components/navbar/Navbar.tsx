@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Leaf, LogIn, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -12,16 +12,22 @@ import UserForm from "../login/UserForm";
 import "../../i18n/i18n";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const Navbar = () => {
+type NavbarProps = {
+  isScrolled: boolean;
+  setIsScrolled: React.Dispatch<React.SetStateAction<boolean>>;
+  isMainNav: boolean;
+};
+
+const Navbar = ({ isScrolled, setIsScrolled, isMainNav}: NavbarProps ) => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
   const { isLoginOpen, setIsLoginOpen } = useDialog();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
 
-  const location = useLocation();
-  const isMainNav = location.pathname === "/";
+  // const location = useLocation();
+  // const isMainNav = location.pathname === "/";
 
   const { user, logOut } = useUserAuth();
 

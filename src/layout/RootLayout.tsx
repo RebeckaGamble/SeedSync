@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -19,12 +19,20 @@ const RootLayout = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const isMainNav = location.pathname === "/";
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
   return (
     <div>
       <ScrollToTop />
-      <Navbar />
+      <Navbar
+        isScrolled={isScrolled}
+        setIsScrolled={setIsScrolled}
+        isMainNav={isMainNav}
+      />
       <Outlet />
-      <Footer />
+      <Footer isScrolled={isScrolled} isMainNav={isMainNav} />
     </div>
   );
 };
